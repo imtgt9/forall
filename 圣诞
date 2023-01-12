@@ -1,0 +1,77 @@
+import turtle
+import pygame
+import random
+turtle.setup(700,700,0,0)
+turtle.speed("fastest")    
+turtle.screensize(bg='black')
+turtle.left(90)
+turtle.forward(3*n)
+turtle.color("orange","yellow")
+turtle.begin_fill()
+turtle.left(126)
+for n in range(5):
+    turtle.forward(n/5)
+    turtle.right(144)
+    turtle.forward(n/5)
+    turtle.left(72)
+turtle.end_fill()
+turtle.rihgt(126)
+turtle.color("dark gree")
+turtle.backward(n/4.8)
+def tree(d,s):
+    if d<=0:return
+    turtle.forward(s)
+    tree(d-1,s*.8)
+    turtle.right(120)
+    tree(d-3,s*.5)
+    turtle.right(120)
+    tree(d-3,s*.5)
+    turtle.right(120)
+    turtle.backward(s)
+tree(15,n)
+bg_size=(1920,1080)
+screen=pygame.display.set_mode(bg_size)
+pygame.display.set_caption("雪夜圣诞树")
+bg=pygame.image.load(bg_img)
+snow_list=[]
+for i in range(150):
+    x_site=random.randrange(0,bg_size[0])
+    y_site=random.randrange(0,bg_size[1])
+    X_shift=random.randint(-1,1)         #x轴
+    radius=random.randint(4,6)           #半径
+    snow_list.append([x-site,y_site,X_shift,radius])
+    for i in range(len(snow_list)):      #绘制雪花，颜色位置大小
+        pygame.draw.circle(screen,(255,255,255),snow_list[i][:2],snow_list[i][3]-3)  #移动雪花位置，（下一次循环起效）
+        snow_list[i][0]+=snow_list[i][2]
+        snow_list[i][1]+=snow_list[i][3]          #如果雪花落出屏幕，重设位置
+    if snow_list[i][1]>=bg_size[1]:
+        snow_list[i][1]=random.randrange(-50,-10)
+        snow_list[i][0]=random.randrange(0,bg_size[0])
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
